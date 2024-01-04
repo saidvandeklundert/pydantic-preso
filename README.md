@@ -1,4 +1,4 @@
 # Talk about Pydantic
 
 
-Talk about Pydantic, the greatest Python package ever!
+Talk about Pydantic, and why I think it is the greatest Python package ever!
