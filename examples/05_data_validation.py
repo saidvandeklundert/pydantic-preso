@@ -66,20 +66,28 @@ from pydantic import BaseModel, ValidationError, validator
 class Person(BaseModel):
     name: str
     age: int
-    drivers_licens: bool
+    drivers_license: bool
 
-    @validator("drivers_licens")
+    @validator("drivers_license")
     def drivers_license_age(cls, v, values):
-        if "drivers_licens" and values["age"] < 18:
+        if v is True and values["age"] < 18:
             raise ValueError("Drivers license before the age of 18 is not possible in the Netherlands!")
         return v
 
+# valid combination:
+marie = Person(
+    name="Marie",
+    age=5,
+    drivers_license=False,
+)
 
+
+# invalid combination, and thuse fails the validation:
 try:
     Person(
         name="Jan",
         age=6,
-        drivers_licens=True,
+        drivers_license=True,
     )
 except ValidationError as e:
     print(e)

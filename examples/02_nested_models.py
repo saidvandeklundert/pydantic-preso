@@ -75,9 +75,9 @@ HumanDC(name='joe', age=6, suitcase={'items': ['comb', 'toothbrush']})
 <class 'dict'>                    # <<<< this is NOT a SuitcaseDC type
 """
 
-# drop the validation for speed by using 'construct':
+# drop the validation for speed by using 'model_construct' (used to be 'construct' in v1):
 input_d = {"name": "marie", "age": 2, "suitcase": {"items": ["comb", "toothbrush"]}}
-marie = Human.construct(**input_d)
+marie = Human.model_construct(**input_d)
 """
 >>> marie
 Human(name='marie', age=2, suitcase={'items': ['comb', 'toothbrush']})
@@ -87,13 +87,13 @@ Human(name='marie', age=2, suitcase={'items': ['comb', 'toothbrush']})
 <class 'dict'>                      # <<<< OOps!
 """
 
-# construct model WITHOUT validating data can also go wrong:
+# model_construct model WITHOUT validating data can also go wrong:
 input_d = {
     "name": ["marie", "oops"],
     "age": 2,
     "suitcase": {"items": ["comb", "toothbrush"]},
 }
-marie_err = Human.construct(**input_d)
+marie_err = Human.model_construct(**input_d)
 # notice how marie.name is now a list:
 """
 >>> marie_err = Human.construct(**input_d)
