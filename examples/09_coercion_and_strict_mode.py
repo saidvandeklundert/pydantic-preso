@@ -8,7 +8,6 @@ For instance, with Enums, UUIDs, IP addresses and more.
 However, in some cases, you might not want this. If this is the case, strict mode has you covered.
 
 """
-import json
 from uuid import UUID
 import ipaddress
 from enum import Enum

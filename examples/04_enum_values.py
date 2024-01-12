@@ -40,3 +40,8 @@ cisco_enum_true = RouterEnumValues()
 
 print(cisco_enum_false.model_dump())
 print(cisco_enum_true.model_dump())
+
+
+
+print(cisco_enum_false.model_dump_json())
+print(cisco_enum_true.model_dump_json())

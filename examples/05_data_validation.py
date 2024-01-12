@@ -60,7 +60,7 @@ v
 
 # We can also validate fields based on the values assigned to other fields.
 #
-from pydantic import BaseModel, ValidationError, validator
+from pydantic import BaseModel, ValidationError, field_validator
 
 
 class Person(BaseModel):
@@ -68,8 +68,13 @@ class Person(BaseModel):
     age: int
     drivers_license: bool
 
-    @validator("drivers_license")
+    @field_validator("drivers_license") # validator in V1
     def drivers_license_age(cls, v, values):
+        """
+        Contains only the previously validated fields, not all of them. 
+
+        It may work, but model_validator (or root_validator in v1) is the way to go. 
+        """
         if v is True and values["age"] < 18:
             raise ValueError("Drivers license before the age of 18 is not possible in the Netherlands!")
         return v

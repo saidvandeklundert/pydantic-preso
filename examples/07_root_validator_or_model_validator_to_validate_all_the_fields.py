@@ -103,8 +103,7 @@ class NetworkDevice(BaseModel):
             if interface.ipv4 in all_ip_addresses:
                 raise ValueError(f"duplicate IP on interface {interface.interface_name}")
             all_ip_addresses.add(interface.ipv4)
-        for ip1, ip2 in itertools.combinations(list(all_ip_addresses), 2):
-            #print(f"checking membership for :{ip1}, {ip2}")
+        for ip1, ip2 in itertools.combinations(list(all_ip_addresses), 2):            
             if ip1.network.overlaps(ip2.network):
                 raise ValueError(f"Overlapping IPs detected:{ip1.network} and {ip2.network}")
         return self    

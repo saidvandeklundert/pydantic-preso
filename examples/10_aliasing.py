@@ -1,5 +1,8 @@
 """
 Alias field names when serializing and deserializing.
+
+
+
 """
 from pydantic import BaseModel, Field
 
@@ -18,7 +21,7 @@ class SomeModelSerializationAlias(BaseModel):
 # instantiate with the alias:
 some_other_model = SomeModelSerializationAlias(field_name='johndoe')  
 
-print(f"we access the field by using some_model.field_name: {some_other_model.field_name}")
+print(f"we access the field by using some_model.field_name: {some_other_model.FieldName}")
 # serialize with or without the alias:
 print(some_other_model.model_dump_json(indent=3))
 print(some_other_model.model_dump_json(indent=3, by_alias=True))
