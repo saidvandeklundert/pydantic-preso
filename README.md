@@ -3,13 +3,13 @@
 
 Talk about Pydantic, and why I think it is one of the greatest Python package ever!
 
-Why do I like it?
+## Why do I like it?
 - developer ergonomics
 - enforce type hints at runtime
 - validating the data in a model
 
 
-Is Pydantic safe to use or depend on?
+## Is Pydantic safe to use or depend on?
 - most widely used data validation library for Python
 - backed by a team that cares about quality, look at the documentation or code base
 - quality and open sourced code which can be found [here](https://github.com/pydantic/pydantic)
@@ -20,12 +20,18 @@ Is Pydantic safe to use or depend on?
 - started by [Samual Colvin](https://github.com/samuelcolvin) who is now building a company around it
 - currently on track to make it faster by utilizing PyO3, even onboarded David Hewitt (maintainer of PyO3)
 
-Where do I use it?
+## Where do I use it?
 - all over the place
 
 
 
-The talk is one where I spend all the time in the IDE and walk people through the following scenarios:
+The talk is one where I spend all the time in the IDE and walk people through the scenarios listed below.
+
+Just run them using:
+```
+ipython .\examples\00_base_example.py
+python .\examples\00_base_example.py
+```
 
 ### 00: base example on creating an instance of a Pydantic class
 
